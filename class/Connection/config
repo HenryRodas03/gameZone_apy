@@ -1,0 +1,10 @@
+{
+    "Connection":{
+        "server" : "localhost",
+        "user" : "root",
+        "pass" : "",
+        "database" : "gamezone",
+        "port" : "3306"
+    }
+
+}
