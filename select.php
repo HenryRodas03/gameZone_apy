@@ -1,13 +1,15 @@
 <?php
+header('Access-Control-Allow-origin: *');
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 include_once 'class/Connection/connection.php';
 
 class select{
 
     
-    public function getData($query){
+    public function getData(){
         $conn = new connection;
-        $results = $conn->connection->query($query);
+        $results = $conn->connection->query("select * from admin");
         $resultArray = array();
         foreach ($results as $key) {
             $resultArray[] = $key;
@@ -32,7 +34,10 @@ class select{
             return 0;
          }
     }
-
 }
+
+$select = new select;
+
+print_r(json_encode($select->getData()));
 
 ?>
