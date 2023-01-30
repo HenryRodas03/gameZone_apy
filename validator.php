@@ -23,7 +23,6 @@ class validate{
         } else {
             return 1;
         }
-    
     }
    
 }
