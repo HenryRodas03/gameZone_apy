@@ -1,6 +1,7 @@
 <?php
 header('Access-Control-Allow-origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header('Content-Type: application/json');
 
 include_once 'class/Connection/connection.php';
 
@@ -33,8 +34,16 @@ class insert {
 
 }
 
-$inse = new insert($params);
+$res = new insert($params);
 
-echo($inse->postData());
+$response = array("resultado" => "", "mensaje" => "");
+
+if ($res->postData()==1) {
+    $response['resultado'] = "OK";
+    $response['mensaje'] = "datos ingresados";
+}
+
+
+  echo json_encode($response); 
 
 ?>
