@@ -17,7 +17,7 @@ class validate{
         $conn = new connection;
         $result= $conn->connection->query("select * from admin where correo='$this->correo' and contrasena='$this->contrasena'");
         $filas = $result->fetch_all(MYSQLI_ASSOC);
-       // Verificar si hay filas o no
+       // Check if there are rows
            if (empty($filas)) {
             return 0;
         } else {

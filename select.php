@@ -9,7 +9,7 @@ class select{
     
     public function getData(){
         $conn = new connection;
-        $results = $conn->connection->query("select * from admin");
+        $results = $conn->connection->query("select * from admin where status=0");
         $resultArray = array();
         foreach ($results as $key) {
             $resultArray[] = $key;
@@ -17,7 +17,7 @@ class select{
         return $conn->convertUTF8($resultArray);
     }
 
-    public function nonQuery($sqlstr){
+  /*   public function nonQuery($sqlstr){
         $conn = new connection;
         $results = $conn->connection->query($sqlstr);
         return $conn->connection->affected_rows;
@@ -33,7 +33,7 @@ class select{
          }else{
             return 0;
          }
-    }
+    } */
 }
 
 $select = new select;
