@@ -16,24 +16,6 @@ class select{
         }
         return $conn->convertUTF8($resultArray);
     }
-
-  /*   public function nonQuery($sqlstr){
-        $conn = new connection;
-        $results = $conn->connection->query($sqlstr);
-        return $conn->connection->affected_rows;
-    }
-
-    //only for inserts, bring me the id
-    public function nonQueryId($sqlstr){
-        $conn = new connection;
-        $results = $conn->connection->query($sqlstr);
-         $filas= $conn->connection->affected_rows;
-         if ($filas>=1) {
-            return $conn->connection->insert_id;
-         }else{
-            return 0;
-         }
-    } */
 }
 
 $select = new select;

@@ -7,18 +7,18 @@ $json = file_get_contents('php://input');
 $params = json_decode($json);
 class validate{
 
-    private $correo; 
-    private $contrasena;
+    private $email; 
+    private $password;
     public function __construct($params){
-        $this->correo = $params->correo;
-        $this->contrasena = $params->contrasena;
+        $this->email = $params->email;
+        $this->password = $params->password;
     }
     public function validate(){
         $conn = new connection;
-        $result= $conn->connection->query("select * from admin where correo='$this->correo' and contrasena='$this->contrasena'");
-        $filas = $result->fetch_all(MYSQLI_ASSOC);
+        $result= $conn->connection->query("select * from admin where email='$this->email' and password='$this->password' and status=0");
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
        // Check if there are rows
-           if (empty($filas)) {
+           if (empty($rows)) {
             return 0;
         } else {
             return 1;

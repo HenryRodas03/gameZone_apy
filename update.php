@@ -11,24 +11,24 @@ $params = json_decode($json);
 class insert {
   
     private $params;
-    private $nombre;
+    private $name;
 
     private $id;
-    private $correo;
-    private $contrasena;
+    private $email;
+    private $password;
 
 
     public function __construct($params) {
-        $this->nombre = $params->nombre;
-        $this->correo = $params->correo;
-        $this->contrasena = $params->contrasena;
+        $this->name = $params->name;
+        $this->email = $params->email;
+        $this->password = $params->password;
         $this->id = $params->id;
     }
    
     public function updateData (){
         $conn = new connection;
         $conn->connection->query("UPDATE admin
-        SET nombre = '$this->nombre', correo = '$this->correo',contrasena= '$this->contrasena' 
+        SET name = '$this->name', email = '$this->email',password= '$this->password' 
         WHERE id = $this->id;")or die("Problemas en el update: " . mysqli_error($conn->connection));
 
         return 1;

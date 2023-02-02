@@ -11,22 +11,22 @@ $params = json_decode($json);
 class insert {
   
     private $params;
-    private $nombre;
-    private $correo;
-    private $contrasena;
+    private $name;
+    private $email;
+    private $password;
 
 
     public function __construct($params) {
-        $this->nombre = $params->nombre;
-        $this->correo = $params->correo;
-        $this->contrasena = $params->contrasena;
+        $this->name = $params->name;
+        $this->email = $params->email;
+        $this->password = $params->password;
     }
    
     public function postData (){
         //return var_dump($this->params);
         $conn = new connection;
-        $conn->connection->query("insert into admin (nombre, correo, contrasena) 
-        values ('$this->nombre','$this->correo','$this->contrasena')")or die("Problemas en el selct: " . mysqli_error($conn->connection));
+        $conn->connection->query("insert into admin (name, email, password) 
+        values ('$this->name','$this->email','$this->password')")or die("Problemas en el selct: " . mysqli_error($conn->connection));
 
         return 1;
                 
