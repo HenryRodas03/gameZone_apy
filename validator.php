@@ -21,20 +21,32 @@ class validate{
            if (empty($rows)) {
             return 0;
         } else {
-            return 1;
+            $resultArray = array();
+            foreach ($result as $key) {
+                $resultArray[] = $key;
+            }
+         return $resultArray;
         }
     }
    
 }
 $res = new validate($params);
 
-$response = array("resultado" => "");
+$response = array("status" => "","role"=>"");
 
-if ($res->validate()==1) {
-    $response['resultado'] = "OK";
+$result= $res->validate() ;
+
+if ($res->validate()!=0) {
+    $response['status']=true;
+    $response['role']=$result[0]['role'];
+    
+}else{
+    $response['status']=false;
+    
 }
 
+print_r(json_encode($response));
 
-  echo json_encode($response); 
+ 
 
 ?>
