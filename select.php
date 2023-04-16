@@ -14,7 +14,7 @@ class select{
         foreach ($results as $key) {
             $resultArray[] = $key;
         }
-        return $conn->convertUTF8($resultArray);
+        return $resultArray;
     }
 }
 

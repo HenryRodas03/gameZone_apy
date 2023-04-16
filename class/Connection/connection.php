@@ -32,16 +32,6 @@ class connection
         $jsondata = file_get_contents($direccion . "/" . "config");
         return json_decode($jsondata, true);
     }
-
-    public function convertUTF8($array){
-        array_walk_recursive($array, function (&$item, $key) {
-            if (!mb_detect_encoding($item, 'utf8', true)) {
-                $item = utf8_encode($item);
-            }
-        });
-        return $array;
-    }
-
     
 
 }
